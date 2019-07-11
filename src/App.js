@@ -6,6 +6,7 @@ import BookDetailPage from './pages/BookDetailPage';
 import './App.css';
 
 const NoMatchRoute = () => <div>404 Page</div>; const App = () => {
+  console.log("in app js")
   return (
     <Router>
       <Switch>

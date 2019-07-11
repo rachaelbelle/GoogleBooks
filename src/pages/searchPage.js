@@ -5,6 +5,8 @@ import BookSearchForm from '../components/BookSearchForm';
 import Loader from '../components/Loader';
 import BooksList from '../components/BookList';
 
+import api from '../api/api';
+
 const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [books, setBooks] = useState({ items: [] });
@@ -16,9 +18,13 @@ const SearchPage = () => {
   const fetchBooks = async () => {
     setLoading(true);
     setError(false);
+    console.log("before the try")
     try {
       const result = await axios.get(`${API_URL}?q=${searchTerm}`);
       setBooks(result.data);
+      console.log("Books are ")
+      console.log(result.data.items[0])
+      api.saveBook(result.data.items[0]);
     } catch (error) {
       setError(true);
     }
@@ -31,6 +37,7 @@ const SearchPage = () => {
 
   const onSubmitHandler = e => {
     e.preventDefault();
+    console.log("I am in submit handler")
     fetchBooks();
   };
 
