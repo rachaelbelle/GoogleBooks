@@ -17,18 +17,18 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-// mongoose.connect(
-//   process.env.MONGODB_URI || "mongodb://localhost/gbdb",
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://user:password1@ds351107.mlab.com:51107/heroku_9xzk8jf1",
 
-//   // user1:password1@ds125871.mlab.com:25871/heroku_0xn0jnk7",
-//   {
-//     useCreateIndex: true,
-//     useNewUrlParser: true
-//   }
-// );
+  // user1:password1@ds125871.mlab.com:25871/heroku_0xn0jnk7",
+  {
+    useCreateIndex: true,
+    useNewUrlParser: true
+  }
+);
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/gbdb",
-mongoose.connect(MONGODB_URI);
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/gbdb",
+// mongoose.connect(MONGODB_URI);
 
 
 // Start the API server
