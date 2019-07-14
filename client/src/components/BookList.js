@@ -19,7 +19,8 @@ const Book = ({ book }) => {
           <h3>{book.volumeInfo.title}</h3>
           <p>{bookAuthors(book.volumeInfo.authors)}</p>
           <p>{book.volumeInfo.publishedDate}</p>
-          <Link to={`/book/${book.id}`}>Show details</Link>
+          <Link to={`/book/${book.id}`}>Show details </Link>
+          <Link to={`/saved/${book.id}`}> Save Book</Link>
         </div>
       </div>
       <hr />
